@@ -45,5 +45,5 @@ def person_detection(imgPath):
 
 
 if __name__ == "__main__":
-    people = person_detection("images/images_with_person/13174.jpg")
+    people = person_detection("images/13174.jpg")
     print(people)
