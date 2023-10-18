@@ -32,19 +32,18 @@ def person_detection(imgPath):
     count = 0
 
     for r in results:
-        boxes = r.boxes
-        for box in boxes:
+        for box in r.boxes:
             conf = math.ceil((box.conf[0]*100))/100
 
             cls = int(box.cls[0])
             currentClass = classNames[cls]
 
-            if currentClass in ["person"] and conf > 0.3:
+            if currentClass in ["person"] and conf > 0.6:
                 count += 1
 
     return count
 
 
 if __name__ == "__main__":
-    people = person_detection("images/13309.jpg")
+    people = person_detection("images/images_with_person/13174.jpg")
     print(people)
