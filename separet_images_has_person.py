@@ -1,7 +1,9 @@
-from face_detection import face_detection
-from tqdm import tqdm
 import os
 import shutil
+
+from tqdm import tqdm
+
+from person_detection import person_detection
 
 path = "./images"
 images_with_person = f"{path}/images_with_person"
@@ -18,9 +20,9 @@ for image in pbar_images:
     if os.path.isdir(image):
         continue
 
-    faces = face_detection(f"{path}/{image}")
+    people = person_detection(f"{path}/{image}")
 
-    if (faces > 0):
+    if (people > 0):
         shutil.move(
             f"{path}/{image}",
             images_with_person
